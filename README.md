@@ -129,11 +129,3 @@ Follow these steps to run the game locally:
 
 Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/twykex/c4_twist/issues). Please adhere to standard coding practices and consider opening an issue first to discuss major changes.
 
----
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` file for more information.
-*(**Note**: You should add a file named `LICENSE` to your project root containing the MIT license text if you choose this license)*
-
----
