@@ -1,0 +1,359 @@
+/* client/css/style.css - SIMPLIFIED THEME STRUCTURE */
+
+/* --- Base Variables & Color Palette --- */
+:root {
+    /* Light Theme (Default) */
+    --bg-gradient-start: #f8f9fa;
+    --bg-gradient-end: #e9ecef;
+    --container-bg: #ffffff;
+    --container-bg-rgb: 255, 255, 255;
+    --container-shadow: rgba(0, 0, 0, 0.08);
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    --text-on-color: #ffffff;
+    --border-color: #dee2e6;
+    --accent-primary: #007bff;
+    --accent-secondary: #6c757d;
+
+    --board-bg: #005a9e;
+    --board-border: #004379;
+    --board-shadow-inset: rgba(0, 0, 0, 0.2);
+    --board-shadow-outer: rgba(0, 0, 0, 0.1);
+    --cell-bg: #003862;
+    --cell-shadow-inset: rgba(0, 0, 0, 0.45);
+    --cell-hover-glow: rgba(0, 0, 0, 0.05);
+
+    --red-primary: #dc3545;
+    --red-gradient-start: #e45d6a;
+    --red-gradient-end: var(--red-primary);
+    --red-shadow: rgba(172, 43, 56, 0.3);
+    --red-glow: rgba(220, 53, 69, 0.4);
+    --red-primary-rgb: 220, 53, 69;
+
+    --yellow-primary: #ffc107;
+    --yellow-gradient-start: #ffd34d;
+    --yellow-gradient-end: var(--yellow-primary);
+    --yellow-shadow: rgba(204, 152, 6, 0.3);
+    --yellow-glow: rgba(255, 193, 7, 0.4);
+    --yellow-primary-rgb: 255, 193, 7;
+
+    --button-bg: var(--accent-primary);
+    --button-hover-bg: #0056b3;
+    --button-text: #ffffff;
+    --button-disabled-bg: #adb5bd;
+    --button-disabled-text: #f8f9fa;
+    --button-shadow: rgba(0, 123, 255, 0.2);
+    --button-disabled-border: #adb5bd; /* Added */
+
+    --toggle-bg: #6c757d;
+    --toggle-hover-bg: #5a6268;
+    --toggle-icon: #ffffff;
+
+    --overlay-backdrop: rgba(33, 37, 41, 0.5);
+    --overlay-bg: #ffffff;
+    --overlay-text: var(--text-primary);
+    --overlay-shadow: rgba(0, 0, 0, 0.15);
+
+    --win-color: #28a745;
+    --lose-color: var(--red-primary);
+    --draw-color: var(--text-secondary);
+    --win-glow: gold;
+    --removable-outline: var(--accent-primary);
+    --error-color: var(--red-primary);
+
+    --info-highlight-red-bg: var(--red-primary);
+    --info-highlight-red-text: var(--text-on-color);
+    --info-highlight-red-border: var(--red-primary);
+    --info-highlight-red-shadow: var(--red-glow);
+    --info-highlight-yellow-bg: var(--yellow-primary);
+    --info-highlight-yellow-text: #333;
+    --info-highlight-yellow-border: var(--yellow-primary);
+    --info-highlight-yellow-shadow: var(--yellow-glow);
+
+    --bg-canvas-particle-color: rgba(0, 123, 255, 0.4);
+    --bg-canvas-line-color: rgba(0, 123, 255, 0.1);
+    --bg-canvas-blur: 10px;
+}
+
+/* Dark Theme Overrides */
+body.dark-theme {
+    --bg-gradient-start: #0d131f;
+    --bg-gradient-end: #1a2a45;
+    --container-bg: #1a2a45;
+    --container-bg-rgb: 26, 42, 69;
+    --container-shadow: rgba(0, 0, 0, 0.3);
+    --text-primary: #e0fbfc;
+    --text-secondary: #98c1d9;
+    --text-muted: #6c757d;
+    --text-on-color: #ffffff;
+    --border-color: rgba(62, 124, 185, 0.3);
+    --accent-primary: #3b9eff;
+    --accent-secondary: #6c757d;
+
+    --board-bg: #0a2540; /* Darker blue board */
+    --board-border: var(--border-color);
+    --board-shadow-inset: rgba(0, 0, 0, 0.4);
+    --board-shadow-outer: rgba(0, 0, 0, 0.3);
+    --cell-bg: #05131f;
+    --cell-shadow-inset: rgba(0, 0, 0, 0.6);
+    --cell-hover-glow: rgba(224, 251, 252, 0.1); /* Slightly less glow */
+
+    --red-primary: #ff3c5f;
+    --red-gradient-start: #ff5c7a;
+    --red-gradient-end: var(--red-primary);
+    --red-shadow: rgba(255, 60, 95, 0.4);
+    --red-glow: rgba(255, 60, 95, 0.6);
+    --red-primary-rgb: 255, 60, 95;
+
+    --yellow-primary: #00f5d4; /* Cyan */
+    --yellow-gradient-start: #60ffee;
+    --yellow-gradient-end: var(--yellow-primary);
+    --yellow-shadow: rgba(0, 245, 212, 0.4);
+    --yellow-glow: rgba(0, 245, 212, 0.6);
+    --yellow-primary-rgb: 0, 245, 212;
+
+    --button-bg: rgba(62, 124, 185, 0.5);
+    --button-hover-bg: rgba(152, 193, 217, 0.6);
+    --button-text: var(--text-primary);
+    --button-border: var(--border-color);
+    --button-disabled-bg: rgba(100, 100, 100, 0.3);
+    --button-disabled-border: rgba(100, 100, 100, 0.5);
+    --button-shadow: rgba(59, 158, 255, 0.15);
+
+    --toggle-bg: #495057;
+    --toggle-hover-bg: #5a6268;
+    --toggle-icon: #e9ecef;
+
+    --overlay-backdrop: rgba(10, 10, 15, 0.75);
+    --overlay-bg: #1a2a45;
+    --overlay-text: var(--text-primary);
+    --overlay-shadow: rgba(0, 0, 0, 0.4);
+
+    --win-color: var(--yellow-primary); /* Use player color */
+    --lose-color: var(--red-primary);
+    --draw-color: var(--text-secondary);
+    --win-glow: #ffffff;
+    --removable-outline: var(--accent-primary);
+    --error-color: var(--red-primary);
+
+    --info-highlight-red-bg: transparent; /* Keep transparent highlight for dark */
+    --info-highlight-red-text: var(--red-primary);
+    --info-highlight-red-border: var(--red-primary);
+    --info-highlight-red-shadow: var(--red-glow);
+    --info-highlight-yellow-bg: transparent;
+    --info-highlight-yellow-text: var(--yellow-primary);
+    --info-highlight-yellow-border: var(--yellow-primary);
+    --info-highlight-yellow-shadow: var(--yellow-glow);
+
+    /* Background Canvas Vars (Dark) */
+    --bg-canvas-particle-color: rgba(152, 193, 217, 0.5);
+    --bg-canvas-line-color: rgba(152, 193, 217, 0.1);
+    --bg-canvas-blur: 6px;
+}
+
+/* --- General Transitions --- */
+body, .container, h1, h2, p, #board-container, .board-cell, .piece, #play-again-button, #theme-toggle, #game-info, #remove-overlay, #game-over-overlay, #background-canvas {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background-image 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+body { transition: background-image 0.3s ease, color 0.3s ease; }
+
+/* --- Base Styles --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-image: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- Background Canvas Style --- */
+#background-canvas {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; filter: blur(var(--bg-canvas-blur));
+}
+
+.container {
+    background-color: rgba(var(--container-bg-rgb), 0.9);
+    padding: 30px 40px; border-radius: 8px;
+    box-shadow: 0 10px 30px var(--container-shadow);
+    border: 1px solid var(--border-color);
+    max-width: 720px; width: 100%; text-align: center;
+    backdrop-filter: blur(8px); position: relative; z-index: 1;
+}
+
+/* --- Typography --- */
+h1 { color: var(--text-primary); margin: 0 0 25px 0; font-weight: 600; font-size: 2em; letter-spacing: 1px; }
+h2 { color: var(--text-primary); margin: 0 0 15px 0; font-weight: 600; font-size: 1.5em; }
+p { margin: 0 0 10px 0; }
+
+/* --- Game Sections --- */
+#lobby-screen p, #game-screen p { color: var(--text-secondary); }
+#status-message { font-weight: 500; }
+
+.game-header { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+#game-info { font-size: 0.95em; font-weight: 500; color: var(--text-secondary); display: inline-block; padding: 4px 8px; border-radius: 6px; border: 1px solid transparent; }
+#game-info.active-turn-red { color: var(--info-highlight-red-text); border-color: var(--info-highlight-red-border); text-shadow: 0 0 5px var(--info-highlight-red-shadow); background-color: var(--info-highlight-red-bg); box-shadow: inset 0 0 10px var(--info-highlight-red-shadow); }
+#game-info.active-turn-yellow { color: var(--info-highlight-yellow-text); border-color: var(--info-highlight-yellow-border); text-shadow: 0 0 5px var(--info-highlight-yellow-shadow); background-color: var(--info-highlight-yellow-bg); box-shadow: inset 0 0 10px var(--info-highlight-yellow-shadow); }
+
+#action-prompt { font-weight: 600; font-size: 1.1em; min-height: 1.6em; margin-bottom: 20px; opacity: 1; color: var(--text-primary); }
+#action-prompt.error-feedback { color: var(--error-color); opacity: 0.9; }
+
+/* --- Board Area --- */
+#board-area { display: flex; flex-direction: column; align-items: center; margin-bottom: 25px; position: relative; }
+
+#board-container {
+    background-color: var(--board-bg); padding: 12px; border-radius: 10px; display: inline-block;
+    border: 1px solid var(--board-border); position: relative; overflow: hidden; z-index: 1;
+    box-shadow: inset 0 4px 12px var(--board-shadow-inset);
+    background-image: linear-gradient(160deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));
+}
+body.light-theme #board-container { background-image: none; box-shadow: inset 0 4px 12px var(--board-shadow-inset), 0 2px 4px var(--board-shadow-outer); } /* Add outer shadow for light */
+
+/* Grid Removed for Simplification - Re-add #board-container::before styles here if desired */
+
+.board-row { display: flex; position: relative; z-index: 1; }
+
+.board-cell {
+    width: 60px; height: 60px; margin: 4px; background-color: var(--cell-bg);
+    border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    position: relative; box-shadow: inset 0 4px 8px var(--cell-shadow-inset), 0 1px 1px rgba(255,255,255,0.05);
+    border: none;
+}
+.board-cell:hover { background-color: var(--cell-hover-glow); }
+
+/* --- Pieces --- */
+.piece {
+    width: 85%; height: 85%; border-radius: 50%; position: relative;
+    /* background-image SET BY COLOR CLASS BELOW */
+    box-shadow: 0 3px 6px var(--theme-shadow), 0 0 10px 1px transparent;
+    animation: dropInModern 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    overflow: hidden;
+}
+.piece::after { /* Gloss highlight */
+    content: ''; position: absolute; top: 5%; left: 15%; width: 70%; height: 40%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.05) 100%);
+    border-radius: 50% / 40%; transform: rotate(-15deg); opacity: 0.8;
+}
+body.light-theme .piece::after { background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 100%); opacity: 0.9; }
+
+.board-cell.red .piece {
+    background-image: linear-gradient(140deg, var(--red-gradient-start), var(--red-gradient-end));
+    box-shadow: 0 3px 6px var(--red-shadow), 0 0 12px 3px var(--red-glow);
+}
+.board-cell.yellow .piece {
+    background-image: linear-gradient(140deg, var(--yellow-gradient-start), var(--yellow-gradient-end));
+    box-shadow: 0 3px 6px var(--yellow-shadow), 0 0 12px 3px var(--yellow-glow);
+}
+
+/* --- Hover & Ghost --- */
+.column-hover-area-container { display: flex; margin-bottom: 8px; padding: 0 12px; height: 25px; justify-content: center; }
+.column-hover-area { width: 60px; height: 100%; margin: 0 4px; cursor: pointer; position: relative; display: flex; justify-content: center; align-items: center; border-radius: 50%; transition: background-color 0.2s ease; }
+.column-hover-area:hover { background-color: rgba(255, 255, 255, 0.1); }
+.hover-indicator { width: 15px; height: 15px; border-radius: 50%; background-color: transparent; opacity: 0; transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease; transform: scale(0.8); pointer-events: none; }
+.column-hover-area:hover .hover-indicator { opacity: 1; transform: scale(1); }
+.column-hover-area.hover-red:hover .hover-indicator { background-color: var(--red-primary); }
+.column-hover-area.hover-yellow:hover .hover-indicator { background-color: var(--yellow-primary); }
+.column-hover-area.not-allowed { cursor: not-allowed; }
+.column-hover-area.not-allowed:hover { background-color: transparent; }
+.column-hover-area.not-allowed:hover .hover-indicator { opacity: 0; }
+
+.ghost-piece { width: 85%; height: 85%; border-radius: 50%; position: absolute; top: 7.5%; left: 7.5%; opacity: 0; z-index: 0; pointer-events: none; border: 2px dashed transparent; background-color: transparent; animation: fadeInGhostModern 0.25s ease-out forwards; }
+.ghost-piece.red { border-color: var(--red-primary); background-color: rgba(var(--red-primary-rgb), 0.2); }
+.ghost-piece.yellow { border-color: var(--yellow-primary); background-color: rgba(var(--yellow-primary-rgb), 0.2); }
+
+/* --- Highlights & Feedback --- */
+.board-cell.removable { cursor: pointer; }
+.board-cell.removable .piece { outline: 3px solid var(--removable-outline); outline-offset: 2px; transition: transform 0.15s ease, outline-color 0.3s ease; }
+.board-cell.removable:hover .piece { transform: scale(1.05); outline-width: 4px; }
+
+.winning-cell .piece { animation: pulseWinModern 0.7s infinite alternate ease-in-out; box-shadow: 0 0 18px 6px var(--win-glow), 0 3px 6px var(--theme-shadow); filter: brightness(1.2); border: 1px solid var(--win-glow); }
+.column-shake { animation: shake 0.5s ease-in-out; }
+.flash-error .piece { animation: flash-red-effect 0.6s ease-in-out; }
+
+/* --- Buttons --- */
+#play-again-button, #theme-toggle { background-color: var(--button-bg); color: var(--button-text); border: none; border-radius: 8px; padding: 10px 20px; font-size: 0.95em; font-weight: 600; cursor: pointer; position: relative; min-width: 110px; overflow: hidden; box-shadow: 0 2px 5px var(--button-shadow); backdrop-filter: blur(3px); }
+#play-again-button span { transition: visibility 0s 0.1s; }
+#play-again-button:hover:not(:disabled), #theme-toggle:hover { background-color: var(--button-hover-bg); transform: translateY(-2px); box-shadow: 0 4px 8px var(--button-shadow); }
+#play-again-button:disabled { background-color: var(--button-disabled-bg); color: var(--button-disabled-text); cursor: not-allowed; box-shadow: none; transform: translateY(0); border: 1px solid var(--button-disabled-border); }
+#play-again-button.loading::before { content: ''; position: absolute; top: calc(50% - 9px); left: calc(50% - 9px); width: 18px; height: 18px; border: 2px solid rgba(255, 255, 255, 0.3); border-top-color: var(--button-text); border-radius: 50%; animation: spin 0.8s linear infinite; }
+#play-again-button.loading span { visibility: hidden; }
+
+#theme-toggle { position: fixed; top: 15px; right: 15px; width: 42px; height: 42px; font-size: 1.2em; line-height: 42px; padding: 0; z-index: 100; box-shadow: 0 2px 5px var(--container-shadow); background-color: var(--toggle-bg); color: var(--toggle-icon); border: 1px solid var(--border-color); }
+#theme-toggle:hover { background-color: var(--toggle-hover-bg); }
+
+/* --- Overlays & Messages --- */
+#remove-overlay, #game-over-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center; text-align: center; border-radius: 10px; opacity: 0; pointer-events: none; animation-duration: 0.3s; animation-fill-mode: forwards; animation-timing-function: ease-out; animation-name: overlayFadeOutScale; }
+#remove-overlay.visible, #game-over-overlay.visible { animation-name: overlayFadeInScale; }
+#remove-overlay.visible { pointer-events: none; }
+#game-over-overlay.visible { pointer-events: auto; }
+
+#remove-overlay { background-color: var(--overlay-backdrop); color: #ffffff; font-size: 1.2em; letter-spacing: 1px; text-transform: uppercase; z-index: 2; backdrop-filter: blur(2px); padding: 20px; }
+#game-over-overlay { background-color: var(--overlay-bg); backdrop-filter: blur(4px); color: var(--overlay-text); font-size: 1.8em; font-weight: 600; z-index: 10; flex-direction: column; box-shadow: 0 5px 15px var(--overlay-shadow); }
+
+.message-area { min-height: auto; margin: 0; padding: 0; }
+#game-over-overlay .message-area { margin-bottom: 20px; }
+#game-over-overlay p { text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin-bottom: 0; }
+#win-message { font-size: 1.4em; font-weight: bold; /* Color set by JS */ }
+#rematch-status { font-style: italic; color: var(--text-muted); font-size: 0.7em; margin-top: 5px; }
+#disconnect-message { color: var(--error-color); font-weight: bold; font-size: 0.9em; margin-top: 10px; }
+#status-message { color: var(--text-primary); }
+
+/* --- Animations --- */
+@keyframes dropInModern { from { transform: translateY(-150%) scale(0.7); opacity: 0.5; } to { transform: translateY(0) scale(1); opacity: 1; } }
+@keyframes fadeInGhostModern { from { opacity: 0; transform: scale(0.9); } to { opacity: 0.5; transform: scale(1); } }
+@keyframes pulseWinModern { from { transform: scale(1); filter: brightness(1); } to { transform: scale(1.08); filter: brightness(1.2); } }
+@keyframes piecePoof { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); } 20%, 40%, 60%, 80% { transform: translateX(6px); } }
+@keyframes flash-red-effect { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.5) saturate(1.5); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes overlayFadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes overlayFadeOutScale { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.95); } }
+@keyframes slowPanGrid { from { background-position: 12px 12px; opacity: 0.6; } to { background-position: calc(12px + var(--cell-total-width, 68px)) calc(12px + var(--cell-total-height, 68px)); opacity: 0.8; } } /* Added fallback for calc */
+
+
+/* --- Pieces with specific animations --- */
+.piece.poofing { animation: piecePoof 0.25s ease-out forwards; }
+.flash-error .piece { animation: flash-red-effect 0.6s ease-in-out; }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    body { padding-top: 20px; }
+    .container { padding: 20px 15px; }
+    h1 { font-size: 1.6em; letter-spacing: 0.5px;}
+    .board-cell { width: 50px; height: 50px; margin: 3px; }
+    #board-container { padding: 10px; }
+    #board-container::before { --cell-width: 50px; --cell-margin: 3px; background-position: 10px 10px; }
+    .column-hover-area { width: 50px; margin: 0 3px; }
+    .hover-indicator { width: 12px; height: 12px; }
+    #play-again-button, #theme-toggle { font-size: 0.9em; padding: 8px 16px;}
+    #theme-toggle { width: 38px; height: 38px; line-height: 38px; font-size: 1.1em; }
+    #game-over-overlay { font-size: 1.5em; }
+}
+
+@media (max-width: 480px) {
+    body { padding-top: 15px; }
+    .container { padding: 15px 10px; }
+    h1 { font-size: 1.4em; }
+    .board-cell { width: 40px; height: 40px; margin: 2px; }
+    #board-container { padding: 8px; }
+     #board-container::before { --cell-width: 40px; --cell-margin: 2px; background-position: 8px 8px; }
+    .column-hover-area { width: 40px; margin: 0 2px; }
+    .hover-indicator { width: 10px; height: 10px; }
+    #play-again-button, #theme-toggle { font-size: 0.85em; padding: 7px 14px;}
+    #theme-toggle { top: 10px; right: 10px; width: 34px; height: 34px; line-height: 34px; font-size: 1em;}
+    #action-prompt { font-size: 0.95em; }
+    #game-over-overlay { font-size: 1.3em; }
+    #win-message { font-size: 1.2em; }
+}
