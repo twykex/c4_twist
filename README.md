@@ -105,33 +105,6 @@ Follow these steps to run the game locally:
 
 ---
 
-## 📁 Project Structure
-
-connect4-twist/
-├── client/             # Frontend code (runs in browser)
-│   ├── index.html      # Main page structure
-│   ├── css/
-│   │   └── style.css   # All visual styling & themes
-│   └── js/
-│       ├── main.js     # Client main logic, Socket events, Core interactions
-│       ├── ui.js       # DOM manipulation, Rendering, Visual feedback
-│       └── background.js # Animated canvas background logic
-├── common/             # Shared code/constants
-│   └── events.js     # Socket.IO event name constants
-├── docs/               # Documentation assets (e.g., demo GIF/screenshot)
-│   └── demo.gif        # Placeholder/Example demo graphic
-├── server/             # Backend code (runs on Node.js)
-│   ├── server.js       # Entry point: Express/Socket.IO setup, Server start
-│   ├── gameManager.js  # Game state creation, storage, management
-│   ├── gameLogic.js    # Core game rules, win/draw checks, gravity
-│   └── socketHandlers.js # Handling specific socket events from clients
-├── node_modules/       # Dependencies (ignored by git)
-├── .gitignore          # Specifies intentionally untracked files
-├── LICENSE             # Project license file (e.g., MIT)
-├── package-lock.json   # Records exact dependency versions
-├── package.json        # Project metadata and dependencies
-└── README.md           # This file
-
 ## 🔮 Future Enhancements
 
 **Immediate Next Steps:**
